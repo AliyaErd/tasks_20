@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,10 +38,14 @@
             <div class="panel-container show">
                 <div class="panel-content">
                     <div class="panel-content">
-                        <div class="form-group">
+                       <div class="form-group">
+                            <?php if(isset($_SESSION['error'])):?>
                                 <div class="alert alert-danger fade show" role="alert">
-                                   Этот эл адрес уже занят другим пользователем
+                                   Этот email уже занят другим пользователем
                                 </div>
+                                <?php unset($_SESSION['error']);?>
+                                <?php endif;?>
+                    </div>
 
                             <form action="task12_form.php" method="post">
                                 <div class="form-group">
